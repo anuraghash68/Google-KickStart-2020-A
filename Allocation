@@ -1,0 +1,44 @@
+/*Test Cases
+3
+4 100
+20 90 40 90
+4 50
+30 30 10 10
+3 300
+999 999 999
+*/
+
+
+#include<bits/stdc++.h>
+#define ll long long 
+using namespace std;
+
+int main()
+{
+    ll tt = 0;
+    cin >> tt;
+    ll k = 1;
+    while(tt--)
+    {
+        ll N = 0,b = 0;cin >> N >> b;
+        ll arr[N] = {0};
+        for(ll i = 0;i < N ;i++) cin >> arr[i];
+        sort(arr,arr+N);
+        for(ll i = 1; i < N;i++)
+          arr[i] += arr[i-1];
+          
+        ll count = 0;
+        for(ll i = 0;i < N;i++)
+         if(arr[i]  <= b) count++;
+         else continue;
+        if(count == 0)
+         cout << "Case #" << k << ": " << 0 << endl;
+        else
+         cout << "Case #" << k << ": " << count << endl;
+        k++; 
+        
+    }
+    
+    
+    return 0; 
+}
